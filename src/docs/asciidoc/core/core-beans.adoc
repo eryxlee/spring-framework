@@ -10652,9 +10652,8 @@ architectures that build upon the well-known Spring programming model.
 [[context-functionality-events-annotation]]
 ==== Annotation-based Event Listeners
 
-As of Spring 4.2, you can register an event listener on any public method of a managed
-bean by using the `@EventListener` annotation. The `BlockedListNotifier` can be rewritten as
-follows:
+You can register an event listener on any method of a managed bean by using the
+`@EventListener` annotation. The `BlockedListNotifier` can be rewritten as follows:
 
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Java
@@ -10792,9 +10791,9 @@ method signature to return the event that should be published, as the following 
 NOTE: This feature is not supported for
 <<context-functionality-events-async, asynchronous listeners>>.
 
-This new method publishes a new `ListUpdateEvent` for every `BlockedListEvent` handled by the
-method above. If you need to publish several events, you can return a `Collection` of events
-instead.
+The `handleBlockedListEvent()` method publishes a new `ListUpdateEvent` for every
+`BlockedListEvent` that it handles. If you need to publish several events, you can return
+a `Collection` or an array of events instead.
 
 
 [[context-functionality-events-async]]
@@ -10954,8 +10953,10 @@ location path as a classpath location. You can also use location paths (resource
 with special prefixes to force loading of definitions from the classpath or a URL,
 regardless of the actual context type.
 
+
+
 [[context-functionality-startup]]
-=== Application Startup tracking
+=== Application Startup Tracking
 
 The `ApplicationContext` manages the lifecycle of Spring applications and provides a rich
 programming model around components. As a result, complex applications can have equally
